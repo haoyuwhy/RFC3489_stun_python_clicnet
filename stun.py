@@ -135,7 +135,6 @@ def stun_test(sock, host, port, source_ip, source_port, send_data=""):
                     return retVal
         msgtype = binascii.b2a_hex(buf[0:2])
         bind_resp_msg = dictValToMsgType[msgtype] == "BindResponseMsg"
-        print(binascii.b2a_hex(buf[4:20]).upper())
         tranid_match = tranid.upper().encode() == binascii.b2a_hex(buf[4:20]).upper()
         if bind_resp_msg and tranid_match:
             recvCorr = True
