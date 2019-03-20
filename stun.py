@@ -228,7 +228,7 @@ def get_nat_type(s, source_ip, source_port, stun_host=None, stun_port=3478):
                 typ = ChangedAddressError
             else:
                 if exIP == ret['ExternalIP'] and exPort == ret['ExternalPort']:
-                    changePortRequest = ''.join([ChangeRequest, '0004', "00000002"])
+                    changePortRequest = ''.join([ChangeRequest.decode("utf-8"), '0004', "00000002"])
                     log.debug("Do Test3")
                     ret = stun_test(s, changedIP, port, source_ip, source_port, changePortRequest)
                     log.debug("Result: %s" % ret)
